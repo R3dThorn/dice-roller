@@ -18,14 +18,15 @@ roll.addEventListener("click", function () {
     container.innerHTML = ""
     var diceNum = document.getElementById("dice-amount").value
     var diceSides = document.getElementById("dice-sides").value
+    if (diceNum >= 51){
+        alert("Too many dice!")
+    } else {
     for (let i = 0; i < diceNum; i++) {
         var diceMath = Math.floor((Math.random() * diceSides) + 1)
         dieRolls.push(diceMath)
         total.innerHTML = dieRolls.reduce((a, b) => a + b, 0)
         console.log(dieRolls[i])
-        i++
-    }
-})
+}}})
 
 reveal.addEventListener("click", function () {
     container.innerHTML = ""
@@ -33,5 +34,4 @@ reveal.addEventListener("click", function () {
     console.log("Dice revealed")
     for (let i = 0; i < diceNum; i++) {
         container.innerHTML += '<li class="dice">' + dieRolls[i] + '</li>'
-    }
-})
+}})
