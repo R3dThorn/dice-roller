@@ -5,8 +5,6 @@ var total = document.getElementById("total")
 const roll = document.getElementById("roll-button")
 let dieRolls = []
 
-
-
 reset.addEventListener("click", function() {
     alert("Roller reset!")
     container.innerHTML = ""
@@ -20,8 +18,7 @@ roll.addEventListener("click", function () {
     container.innerHTML = ""
     var diceNum = document.getElementById("dice-amount").value
     var diceSides = document.getElementById("dice-sides").value
-    var i = 0
-    while (i < diceNum) {
+    for (let i = 0; i < diceNum; i++) {
         var diceMath = Math.floor((Math.random() * diceSides) + 1)
         dieRolls.push(diceMath)
         total.innerHTML = dieRolls.reduce((a, b) => a + b, 0)
@@ -31,11 +28,10 @@ roll.addEventListener("click", function () {
 })
 
 reveal.addEventListener("click", function () {
+    container.innerHTML = ""
     var diceNum = document.getElementById("dice-amount").value
-    var i = 0
     console.log("Dice revealed")
-    while (i < diceNum) {
+    for (let i = 0; i < diceNum; i++) {
         container.innerHTML += '<li class="dice">' + dieRolls[i] + '</li>'
-        i++
     }
 })
