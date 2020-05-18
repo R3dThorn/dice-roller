@@ -16,6 +16,8 @@ reset.addEventListener("click", function() {
 })
 
 roll.addEventListener("click", function () {
+    dieRolls = []
+    container.innerHTML = ""
     var diceNum = document.getElementById("dice-amount").value
     var diceSides = document.getElementById("dice-sides").value
     var i = 0
